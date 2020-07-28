@@ -19,8 +19,8 @@ import {
 } from "native-base";
 import { StatusBar } from "react-native";
 import CallsScreen from "./screens/calls";
-import RoomsScreen from "./screens/rooms";
-import UsersScreen from "./screens/users";
+import ChatsScreen from "./screens/chats";
+import StatusScreen from "./screens/status";
 import appStyles from "./appStyles.js";
 
 const App = () => {
@@ -49,7 +49,7 @@ const App = () => {
         tabContainerStyle={{ elevation: 0 }}
         tabBarUnderlineStyle={appStyles.tabBarUnderline}
       >
-        {/* <Tab
+        <Tab
           heading={
             <TabHeading style={{ backgroundColor: "#545E07" }}>
               <Icon name="photo-camera" type="MaterialIcons" />
@@ -65,29 +65,29 @@ const App = () => {
           >
             Camera Screen
           </Text>
-        </Tab> */}
+        </Tab>
         <Tab
           heading={
             <TabHeading style={{ backgroundColor: "#545E07" }}>
-              <Text style={appStyles.tabsText}>ROOMS</Text>
+              <Text style={appStyles.tabsText}>CHATS</Text>
               <Badge style={appStyles.badge}>
                 <Text style={appStyles.badgeText}>2</Text>
               </Badge>
             </TabHeading>
           }
         >
-          <RoomsScreen />
+          <CallsScreen />
         </Tab>
         <Tab
           heading={
             <TabHeading style={{ backgroundColor: "#545E07" }}>
-              <Text style={appStyles.tabsText}>USERS</Text>
+              <Text style={appStyles.tabsText}>STATUS</Text>
             </TabHeading>
           }
         >
-          <UsersScreen />
+          <StatusScreen />
         </Tab>
-        {/* <Tab
+        <Tab
           heading={
             <TabHeading style={{ backgroundColor: "#545E07" }}>
               <Text style={appStyles.tabsText}>CALLS</Text>
@@ -95,7 +95,7 @@ const App = () => {
           }
         >
           <CallsScreen />
-        </Tab> */}
+        </Tab>
       </Tabs>
     </Container>
   );
