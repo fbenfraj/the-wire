@@ -24,6 +24,18 @@ export default StyleSheet.create({
   },
   badgeText: {
     fontSize: 12,
-    color: "#535E07" 
-  }
+    color: "#535E07",
+  },
+  badgeChats: {
+    backgroundColor: "#535E07",
+    justifyContent: "center",
+    textAlign: "center",
+    alignSelf: "center",
+    height: 24,
+    marginTop: 4,
+  },
+  badgeTextChats: {
+    fontSize: 12,
+    color: "snow",
+  },
 });
