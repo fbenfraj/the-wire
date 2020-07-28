@@ -20,11 +20,15 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        screenOptions={{
-          headerShown: true
-        }}>
+        >
         <Stack.Screen name="Connect" component={ConnectView} />
-        <Stack.Screen name="Main" component={MainView} />
+        <Stack.Screen
+          name="Main"
+          component={MainView}
+          options={{
+            headerLeft: null
+          }}
+          />
         <Stack.Screen
           name="Room"
           component={RoomView}

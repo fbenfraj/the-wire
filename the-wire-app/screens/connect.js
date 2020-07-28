@@ -22,7 +22,13 @@ const ConnectView = ({ navigation }) => {
           <Item>
             <Input placeholder="Password" />
           </Item>
-          <Button primary onPress={() => navigation.navigate("Main")}>
+          <Button primary onPress={() => {
+            navigation.navigate("Main")
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'Main' }],
+            });
+          }}>
             <Text>Connect</Text>
           </Button>
         </Form>

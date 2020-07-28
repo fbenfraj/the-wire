@@ -20,7 +20,7 @@ import appStyles from "../appStyles.js";
 
 const MainView = ({ navigation }) => {
   return (
-    <Container style={{ marginTop: 20 }}>
+    <Container>
       {/* <Header noLeft style={appStyles.headerBackgroundColor}>
         <Body>
           <Title style={appStyles.appTitle}>The Wire</Title>
