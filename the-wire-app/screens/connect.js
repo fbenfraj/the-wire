@@ -9,8 +9,6 @@ import {
   Input,
   Text,
 } from "native-base";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 
 const ConnectView = ({ navigation }) => {
   return (
