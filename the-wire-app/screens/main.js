@@ -14,7 +14,7 @@ import {
   Right,
 } from "native-base";
 import CallsScreen from "./calls";
-import RoomsScreen from "./rooms";
+import RoomsScreen from "./rooms/rooms";
 import UsersScreen from "./users";
 import appStyles from "../appStyles.js";
 
