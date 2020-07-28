@@ -18,10 +18,10 @@ import RoomsScreen from "./rooms/rooms";
 import UsersScreen from "./users";
 import appStyles from "../appStyles.js";
 
-const MainView = () => {
+const MainView = ({ navigation }) => {
   return (
     <Container style={{ marginTop: 20 }}>
-      <Header noLeft style={appStyles.headerBackgroundColor}>
+      {/* <Header noLeft style={appStyles.headerBackgroundColor}>
         <Body>
           <Title style={appStyles.appTitle}>The Wire</Title>
         </Body>
@@ -33,9 +33,9 @@ const MainView = () => {
             <Icon type="MaterialIcons" name="more-vert" />
           </Button>
         </Right>
-      </Header>
+      </Header> */}
       <Tabs
-        initialPage={1}
+        initialPage={0}
         tabBarBackgroundColor="#545E07"
         tabContainerStyle={{ elevation: 0 }}
         tabBarUnderlineStyle={appStyles.tabBarUnderline}
@@ -67,7 +67,7 @@ const MainView = () => {
             </TabHeading>
           }
         >
-          <RoomsScreen />
+          <RoomsScreen navigation={navigation} />
         </Tab>
         <Tab
           heading={

@@ -5,6 +5,7 @@ import { AppLoading } from "expo";
 import * as Font from "expo-font";
 import ConnectView from "./screens/connect";
 import MainView from "./screens/main";
+import RoomView from "./screens/room/room";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import CallsScreen from "./screens/calls";
@@ -18,9 +19,17 @@ const App = () => {
   
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: true
+        }}>
         <Stack.Screen name="Connect" component={ConnectView} />
         <Stack.Screen name="Main" component={MainView} />
+        <Stack.Screen
+          name="Room"
+          component={RoomView}
+          options={({ route }) => ({ title: 'Room ' + route.params.roomId })}
+          />
       </Stack.Navigator>
     </NavigationContainer>
   );

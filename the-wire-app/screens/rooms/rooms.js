@@ -29,13 +29,16 @@ const rooms = [{
   }]
 }]
 
-const ChatsScreen = () => {
+const RoomsScreen = ({ navigation }) => {
   return (
     <Container>
       <Content>
         {rooms.map((room, i) => (
           <View key={i}>
-            <ListItem noIndent>
+            <ListItem
+              noIndent
+              button
+              onPress={() => navigation.navigate('Room', { roomId: i })}>
               {/* <Left>
                 <Thumbnail
                   source={{
@@ -91,4 +94,4 @@ const ChatsScreen = () => {
   );
 };
 
-export default ChatsScreen;
+export default RoomsScreen;
