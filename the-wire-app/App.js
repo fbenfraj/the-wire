@@ -21,7 +21,13 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator
         >
-        <Stack.Screen name="Connect" component={ConnectView} />
+        <Stack.Screen
+          name="Connect"
+          component={ConnectView}
+          options={{
+            
+          }}
+          />
         <Stack.Screen
           name="Main"
           component={MainView}

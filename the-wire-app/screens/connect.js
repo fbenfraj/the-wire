@@ -3,7 +3,6 @@ import {
   Button,
   Container,
   Content,
-  Header,
   Form,
   Item,
   Input,
@@ -13,15 +12,15 @@ import {
 const ConnectView = ({ navigation }) => {
   return (
     <Container>
-      <Header />
       <Content>
-        <Form>
-          <Item>
+        <Form style={{ margin: 20, display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+          <Item last>
             <Input placeholder="Server IP" />
           </Item>
-          <Item>
+          <Item last style={{ marginBottom: 24 }}>
             <Input placeholder="Password" />
           </Item>
+          {/* TODO: centrer le bouton, ou le mettre sur la droite */}
           <Button primary onPress={() => {
             navigation.navigate("Main")
             navigation.reset({
