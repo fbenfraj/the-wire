@@ -1,17 +1,20 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
+import {
+  Modal
+} from "react-native"
 import {
   Container,
   Content,
-  Left,
-  Right,
   Body,
   Text,
   ListItem,
-  Thumbnail,
-  Badge,
   Fab,
   Icon,
   View,
+  Button,
+  Form,
+  Item,
+  Input,
 } from "native-base";
 import roomStyles from "./roomStyles";
 
@@ -30,6 +33,7 @@ const rooms = [{
 }]
 
 const RoomsScreen = ({ navigation }) => {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <Container>
       <Content>
@@ -86,9 +90,32 @@ const RoomsScreen = ({ navigation }) => {
             ))}
           </View>
         ))}
+        <Modal
+          visible={modalVisible}
+          transparent
+        >
+          <View style={roomStyles.centeredView}>
+            <View style={roomStyles.modalView}>
+              <Form style={{ justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                <Item last style={{ marginBottom: 8 }}>
+                  <Input placeholder="Room name" />
+                </Item>
+                {/* TODO: centrer le bouton, ou le mettre sur la droite */}
+                <Button primary onPress={() => {
+                  setModalVisible(!modalVisible);
+                }}>
+                  <Text>Add</Text>
+                </Button>
+              </Form>
+
+            </View>
+          </View>
+        </Modal>
       </Content>
-      <Fab>
-        <Icon name="chat" type="MaterialIcons" />
+      <Fab
+        onPress={() => setModalVisible(true)}
+      >
+        <Icon name="add" type="MaterialIcons" />
       </Fab>
     </Container>
   );
