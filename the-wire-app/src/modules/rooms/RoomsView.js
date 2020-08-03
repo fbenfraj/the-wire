@@ -71,14 +71,13 @@ class RoomsView extends React.PureComponent {
 		return (
 			<Container>
 				<Tabs
-				initialPage={0}
-				tabBarBackgroundColor="#545E07"
-				tabContainerStyle={{ elevation: 0 }}
-				tabBarUnderlineStyle={styles.tabBarUnderline}
+					initialPage={0}
+					tabContainerStyle={{ elevation: 0 }}
+					tabBarUnderlineStyle={styles.tabBarUnderline}
 				>
 					<Tab
 						heading={
-							<TabHeading style={{ backgroundColor: "#545E07" }}>
+							<TabHeading style={{ backgroundColor: "#4745be" }}>
 								<Text style={styles.tabsText}>ROOMS</Text>
 								{/* <Badge style={styles.badge}>
 									<Text style={styles.badgeText}>2</Text>
@@ -170,7 +169,7 @@ class RoomsView extends React.PureComponent {
 					</Tab>
 					<Tab
 						heading={
-							<TabHeading style={{ backgroundColor: "#545E07" }}>
+							<TabHeading style={{ backgroundColor: "#4745be" }}>
 								<Text style={styles.tabsText}>USERS</Text>
 							</TabHeading>
 						}
@@ -267,7 +266,8 @@ const styles = StyleSheet.create({
   },
   tabsText: {
     fontWeight: "bold",
-    fontSize: 14,
+		fontSize: 14,
+		color: 'white'
   },
   badge: {
     height: 24,
