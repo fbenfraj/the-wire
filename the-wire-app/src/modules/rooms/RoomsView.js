@@ -15,7 +15,7 @@ import {
   Button,
   Form,
   Item,
-  Input,
+	Input,
   Tab,
   TabHeading,
 	Tabs,
@@ -48,22 +48,22 @@ const users = [{
 
 class RoomsView extends React.PureComponent {
 
-	_menu = null
+	_menu = {}
 
 	state = {
 		modalVisible: false
 	}
  
-  setMenuRef = ref => {
-    this._menu = ref
+  setMenuRef = (i, ref) => {
+    this._menu[i] = ref
   }
  
-  hideMenu = () => {
-    this._menu.hide()
+  hideMenu = (i) => {
+    this._menu[i].hide()
   }
  
-  showMenu = () => {
-    this._menu.show()
+  showMenu = (i) => {
+    this._menu[i].show()
 	}
 	
 	render () {
@@ -175,6 +175,10 @@ class RoomsView extends React.PureComponent {
 							</TabHeading>
 						}
 					>
+						<Item>
+							<Input placeholder="Search" />
+							<Icon name="search" type="MaterialIcons" />
+						</Item>
 						{users.map((user, i) => (
 							<ListItem
 								key={i}
@@ -195,15 +199,15 @@ class RoomsView extends React.PureComponent {
 								</Body>
 								<Right>
 									<Menu
-										ref={this.setMenuRef}
+										ref={ref => this.setMenuRef(i, ref)}
 										button={
-											<Button onPress={this.showMenu} transparent>
+											<Button onPress={() => this.showMenu(i)} transparent>
 												<Icon name="more-vert" type="MaterialIcons" />
 											</Button>
 										}
 									>
-										<MenuItem onPress={this.hideMenu}>Menu item 1</MenuItem>
-										<MenuItem onPress={this.hideMenu}>Menu item 2</MenuItem>
+										<MenuItem onPress={() => this.hideMenu(i)}>Menu item 1</MenuItem>
+										<MenuItem onPress={() => this.hideMenu(i)}>Menu item 2</MenuItem>
 									</Menu>
 								</Right>
 							</ListItem>
