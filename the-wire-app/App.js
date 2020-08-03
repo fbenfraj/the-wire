@@ -1,48 +1,39 @@
-import React, { useState, useEffect } from "react";
-import { Root } from "native-base";
-import { StatusBar } from "react-native";
-import { AppLoading } from "expo";
-import * as Font from "expo-font";
-import ConnectView from "./screens/connect";
-import MainView from "./screens/main";
-import RoomView from "./screens/room/room";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import CallsScreen from "./screens/calls";
+import { Provider } from 'react-redux';
+import React from 'react';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { PersistGate } from 'redux-persist/integration/react';
+import { NavigationContainer } from '@react-navigation/native';
+import { colors } from './src/styles';
 
-const Stack = createStackNavigator();
+import { store, persistor } from './src/redux/store';
 
-const App = () => {
-  setTimeout(() => {
-    StatusBar.setBackgroundColor("#7E8C12");
-  }, 100);
-  
+import AppView from './src/modules/AppViewContainer';
+
+export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
+    <Provider store={store}>
+      <NavigationContainer>
+        <PersistGate
+          loading={
+            // eslint-disable-next-line react/jsx-wrap-multilines
+            <View style={styles.container}>
+              <ActivityIndicator color={colors.red} />
+            </View>
+          }
+          persistor={persistor}
         >
-        <Stack.Screen
-          name="Connect"
-          component={ConnectView}
-          options={{
-            
-          }}
-          />
-        <Stack.Screen
-          name="Main"
-          component={MainView}
-          options={{
-            headerLeft: null
-          }}
-          />
-        <Stack.Screen
-          name="Room"
-          component={RoomView}
-          options={({ route }) => ({ title: 'Room ' + route.params.roomId })}
-          />
-      </Stack.Navigator>
-    </NavigationContainer>
+          <AppView />
+        </PersistGate>
+      </NavigationContainer>
+    </Provider>
   );
-};
+}
 
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
+});
