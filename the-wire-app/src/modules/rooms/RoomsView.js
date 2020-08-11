@@ -150,8 +150,8 @@ class RoomsView extends React.PureComponent {
 												<Input placeholder="Room name" />
 											</Item>
 											{/* TODO: centrer le bouton, ou le mettre sur la droite */}
-											<Button primary onPress={() => {
-												setState({ modalVisible: !modalVisible});
+											<Button style={{ backgroundColor: "#4745be" }} onPress={() => {
+												this.setState({ modalVisible: !this.state.modalVisible});
 											}}>
 												<Text>Add</Text>
 											</Button>
@@ -162,7 +162,8 @@ class RoomsView extends React.PureComponent {
 							</Modal>
 						</Content>
 						<Fab
-							onPress={() => setState({ modalVisible: true })}
+							onPress={() => this.setState({ modalVisible: true })}
+							style={{ backgroundColor: "#4745be"}}
 						>
 							<Icon name="add" type="MaterialIcons" />
 						</Fab>
